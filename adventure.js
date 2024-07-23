@@ -1,6 +1,8 @@
 const { trails, rivers, wildlife } = require("./objects")
 
-const { totalTrailMiles, shortestTrail, longestTrail } = require("./functions")
+const { totalTrailMiles, shortestTrail, longestTrail } = require("./trailFunctions")
+
+const { totalRiverMiles, shortestRiver, longestRiver } = require("./riverFunctions")
 
 
 console.log(`
@@ -29,6 +31,18 @@ console.log(`We service ${trailTotal} miles of wilderness trails across the US`)
 const shortTrail = shortestTrail(trails)
 console.log(`The shortest trail is ${shortTrail} kilometers`)
 
-const longest = longestTrail(trails)
-console.log(`The longest trail is ${longest} kilometers`)
+const longTrail = longestTrail(trails)
+console.log(`The longest trail is ${longTrail} kilometers`)
 
+console.log('***************************************************')
+console.log('*****              RIVERS                     *****')
+console.log('***************************************************')
+
+const riverTotal = totalTrailMiles(rivers)
+console.log(`We offer expert guidance on ${riverTotal} kilometers of scenic rivers across the US`)
+
+const shortRiver = shortestRiver(rivers)
+console.log(`The shortest river is ${shortRiver} kilometers`)
+
+const longRiver = longestRiver(rivers)
+console.log(`The longest river is ${longRiver} kilometers`)
