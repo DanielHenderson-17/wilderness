@@ -45,35 +45,23 @@ const longestRiver = (allRivers) => {
 
 // Function to find the least expensive river tours
 const leastExpensiveRiver = (rivers) => {
-    // Initialize an array to hold the names of the least expensive rivers
-    let leastExpensive = [];
-    // Iterate over each river object in the rivers array
-    for (const river of rivers) {
-        // Check if the current river's price is represented by a single dollar sign
-        if (river.price === '$') {
-            // Add the current river's name to the leastExpensive array
-            leastExpensive.push(river.river);
-        }
+    const leastExpensive = rivers.filter(river => river.price === '$');
+    let result = [];
+    for (const river of leastExpensive) {
+      result.push(river.river);
     }
-    // Return the array of least expensive river names
-    return leastExpensive;
-};
-
-// Function to find the most expensive river tours
-const mostExpensiveRiver = (rivers) => {
-    // Initialize an array to hold the names of the most expensive rivers
-    let mostExpensive = [];
-    // Iterate over each river object in the rivers array
-    for (const river of rivers) {
-        // Check if the current river's price is represented by four or five dollar signs
-        if (river.price === '$$$$' || river.price === '$$$$$') {
-            // Add the current river's name to the mostExpensive array
-            mostExpensive.push(river.river);
-        }
+    return result;
+  };
+  
+  // Function to find the most expensive river tours
+  const mostExpensiveRiver = (rivers) => {
+    const mostExpensive = rivers.filter(river => river.price === '$$$$' || river.price === '$$$$$');
+    let result = [];
+    for (const river of mostExpensive) {
+      result.push(river.river);
     }
-    // Return the array of most expensive river names
-    return mostExpensive;
-};
+    return result;
+  };
 
 // Export the functions to be used in other modules
 module.exports = { totalRiverMiles, shortestRiver, longestRiver, leastExpensiveRiver, mostExpensiveRiver };

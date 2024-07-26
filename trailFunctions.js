@@ -45,34 +45,22 @@ const longestTrail = (allTrails) => {
 
 // Function to find the least expensive trails
 const leastExpensiveTrail = (trails) => {
-    // Initialize an array to hold the names of the least expensive trails
-    let leastExpensive = [];
-    // Iterate over each trail object in the trails array
-    for (const trail of trails) {
-        // Check if the current trail's price is represented by a single dollar sign
-        if (trail.price === '$') {
-            // Add the current trail's name to the leastExpensive array
-            leastExpensive.push(trail.trailName);
+    let leastExpensive = trails.filter(trail => trail.price === '$');
+    let result = [];
+    for (const trail of leastExpensive) {
+        result.push(trail.trailName);
         }
-    }
-    // Return the array of least expensive trail names
-    return leastExpensive;
+    return result;
 };
 
 // Function to find the most expensive trails
 const mostExpensiveTrail = (trails) => {
-    // Initialize an array to hold the names of the most expensive trails
-    let mostExpensive = [];
-    // Iterate over each trail object in the trails array
-    for (const trail of trails) {
-        // Check if the current trail's price is represented by four or five dollar signs
-        if (trail.price === '$$$$' || trail.price === '$$$$$') {
-            // Add the current trail's name to the mostExpensive array
-            mostExpensive.push(trail.trailName);
-        }
+    const mostExpensive = trails.filter(trail => trail.price ==='$$$$' || trail.price === '$$$$$');
+    let result = [];
+    for (const trail of mostExpensive) {
+            result.push(trail.trailName);
     }
-    // Return the array of most expensive trail names
-    return mostExpensive;
+    return result;
 };
 
 // Export the functions to be used in other modules
